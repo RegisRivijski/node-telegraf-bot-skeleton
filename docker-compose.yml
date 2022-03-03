@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+  genshin-tg-bot:
+    image: "telegraf-bot"
+    container_name: "telegraf-bot"
+    build:
+      context: ${PWD}
+      dockerfile: Dockerfile
+    environment:
+      - PORT=5050
+    ports:
+      - "5050:5050"
+    volumes:
+      - ${PWD}/app:/app/app
+      - ${PWD}/config:/app/config
